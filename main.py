@@ -46,6 +46,7 @@ if __name__ == "__main__":
     parser = create_parser()
     args = parser.parse_args()
     yaml_args = yaml.load(args.configs)
+    print(yaml_args)
 
     rabbit = Rabbit(yaml_args)
 
@@ -53,10 +54,10 @@ if __name__ == "__main__":
         
     if args.sub:
         try:
-#            while True:
-            rabbit.subscribe()
-#        except KeyboardInterrupt:
- #           pass
+            while True:
+                rabbit.subscribe()
+        except KeyboardInterrupt:
+            pass
         finally:
             pass
 
