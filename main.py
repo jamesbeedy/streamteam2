@@ -20,12 +20,14 @@ def create_parser():
     group.add_argument(
         '-p',
         '--publish',
+        dest='pub',
         metavar='publish',
         help='publish'
     )
     group.add_argument(
         '-s',
         '--subscribe',
+        dest='sub',
         metavar='subscribe',
         help = 'subscribe'
     )
