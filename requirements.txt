@@ -1,0 +1,8 @@
+emokit==0.0.8
+future==0.16.0
+gevent==1.1.2
+greenlet==0.4.11
+pika==0.10.0
+pkg-resources==0.0.0
+pycrypto==2.6.1
+pyhidapi==1.0.0

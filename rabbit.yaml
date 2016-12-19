@@ -1,0 +1,8 @@
+username: 'jujuclient'
+password: ''
+host: '10.20.10.178'
+port: 5672
+vhost: 'jujuvhost'
+queue: 'hello'
+exchange: ''
+routing-key: 'hello'
