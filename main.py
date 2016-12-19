@@ -50,18 +50,12 @@ if __name__ == "__main__":
 
     rabbit = Rabbit(yaml_args)
 
-    headset = emotiv.Emotiv()
         
     if args.sub:
-        try:
-            while True:
-                rabbit.subscribe()
-        except KeyboardInterrupt:
-            pass
-        finally:
-            pass
+        rabbit.subscribe()
 
     if args.pub:
+        headset = emotiv.Emotiv()
         gevent.spawn(headset.setup)
         gevent.sleep(1)
         try:
