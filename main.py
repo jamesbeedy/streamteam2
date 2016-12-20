@@ -46,11 +46,8 @@ if __name__ == "__main__":
     parser = create_parser()
     args = parser.parse_args()
     yaml_args = yaml.load(args.configs)
-    print(yaml_args)
-
     rabbit = Rabbit(yaml_args)
 
-        
     if args.sub:
         rabbit.subscribe()
 
@@ -61,4 +58,3 @@ if __name__ == "__main__":
                 if packet is not None:
                     rabbit.publish(json.dumps(raw_data_all(packet)))
                 time.sleep(0.001)
-
