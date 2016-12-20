@@ -58,9 +58,7 @@ if __name__ == "__main__":
         with Emotiv(display_output=True, verbose=True, write=True) as headset:
             while True:
                 packet = headset.dequeue()
-
                 if packet is not None:
-                    packet = headset.dequeue()
                     rabbit.publish(json.dumps(raw_data_all(packet)))
                 time.sleep(0.001)
 
