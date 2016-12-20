@@ -11,11 +11,11 @@ class Rabbit:
         self.rabbit_queue = args['queue']
         self.rabbit_exchange = args['exchange']
         self.rabbit_routing_key = args['routing-key']
-        self.creds = pika.PlainCredentials('%s' % self.rabbit_user, '%s' % self.rabbit_pass)
+        self.creds = pika.PlainCredentials(self.rabbit_user, self.rabbit_pass)
         self.conn = pika.BlockingConnection(pika.ConnectionParameters(
-                                                host='%s' % self.rabbit_host,
+                                                host=self.rabbit_host,
                                                 port=self.rabbit_port,
-                                                virtual_host='%s' % self.rabbit_vhost,
+                                                virtual_host=self.rabbit_vhost,
                                                 credentials=self.creds))
 
         self.channel = self.conn.channel()
@@ -29,7 +29,7 @@ class Rabbit:
     def subscribe(self):
         def callback(ch, method, properties, body):
             print(str(body.decode()))
-        self.channel.basic_consume(callback, queue='%s' % self.rabbit_queue,
+        self.channel.basic_consume(callback, queue=self.rabbit_queue,
                                    no_ack=True)
         self.channel.start_consuming()
 
