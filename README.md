@@ -5,6 +5,7 @@ CLI helper for streaming Emotiv EEG data to pubnub or rabbitmq
 * Install hidapi http://www.signal11.us/oss/hidapi/
 * Install pyhidapi https://github.com/NF6X/pyhidapi
 * `sudo apt install virtualenv`
+
 ## Application level prereqs
 * Create and source the venv, and install the prereqs
 ```bash
