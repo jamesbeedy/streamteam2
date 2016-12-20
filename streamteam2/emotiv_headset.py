@@ -13,10 +13,7 @@ def raw_data_all(packet):
         Input: a string of either 'x' or 'y'
         Return: gyro sensor value
         """
-        if plane == 'x':
-            return packet.sensors['X']['value']
-        elif plane == 'y':
-            return packet.sensors['Y']['value']
+        return packet.sensors[plane.upper()]['value']
 
     def sensor_val(sensor_name):
         """Sensor value helper function
