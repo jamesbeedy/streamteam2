@@ -14,9 +14,9 @@ def raw_data_all(packet):
         Return: gyro sensor value
         """
         if plane == 'x':
-            return packet.gyroX
+            return packet.sensors['X']['value']
         elif plane == 'y':
-            return packet.gyroY
+            return packet.sensors['Y']['value']
 
     def sensor_val(sensor_name):
         """Sensor value helper function

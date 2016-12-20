@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
-import yaml, json, argparse, gevent
+#!/usr/bin/env python
+import yaml, json, argparse, time
 from argparse import ArgumentParser
-from emokit import emotiv
+from emokit.emotiv import Emotiv
 from streamteam2.emotiv_headset import SENSOR_NAMES, raw_data_all
 from streamteam2.rabbit import Rabbit
 
@@ -55,15 +55,12 @@ if __name__ == "__main__":
         rabbit.subscribe()
 
     if args.pub:
-        headset = emotiv.Emotiv()
-        gevent.spawn(headset.setup)
-        gevent.sleep(1)
-        try:
+        with Emotiv(display_output=True, verbose=True, write=True) as headset:
             while True:
                 packet = headset.dequeue()
-                rabbit.publish(json.dumps(raw_data_all(packet)))
-                gevent.sleep(1)
-        except KeyboardInterrupt:
-            headset.close()
-        finally:
-            headset.close()
+
+                if packet is not None:
+                    packet = headset.dequeue()
+                    rabbit.publish(json.dumps(raw_data_all(packet)))
+                time.sleep(0.001)
+
