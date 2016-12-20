@@ -1,8 +1,8 @@
 username: 'jujuclient'
-password: 'PRRfgVM2M383JxthHFYkw6PjgdVfk8gX5dWPpGPFfjH557jwb53zFZZ3hGG6JR69'
-host: '10.20.10.178'
+password: 'rabbit-pw'
+host: 'rabbit-ip'
 port: 5672
-vhost: 'jujuvhost'
-queue: 'hello'
+vhost: 'rabbit-vhost'
+queue: 'rabbit-queue'
 exchange: ''
-routing-key: 'hello'
+routing-key: 'rabbit-routing-key'
