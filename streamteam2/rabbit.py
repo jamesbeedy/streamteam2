@@ -30,7 +30,7 @@ class Rabbit:
         def callback(ch, method, properties, body):
             print(str(body.decode()))
         self.channel.basic_consume(callback, queue='%s' % self.rabbit_queue,
-                              no_ack=True)
+                                   no_ack=True)
         self.channel.start_consuming()
 
     def close(self):

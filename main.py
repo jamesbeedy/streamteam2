@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import yaml, json, argparse, time
 from argparse import ArgumentParser
 from emokit.emotiv import Emotiv
